@@ -177,7 +177,16 @@ h1 {
   color: var(--wine);
   font-size: 0.78rem;
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 0.50;
+}
+
+.event-detailsr {
+  max-width: 24rem;
+  margin: 0 auto 0.85rem;
+  color: var(--wine);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 0.95;
 }
 
 form {
@@ -465,7 +474,7 @@ input[type="number"]:focus {
 }
 
 .thank-you-details {
-  margin: 0.20rem 0 0.8rem;
+  margin: 0.20rem 0 0.1rem;
 }
 
 .thank-you-button {
