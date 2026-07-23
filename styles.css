@@ -1,0 +1,476 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap");
+
+:root {
+  --pearl: #fffaf2;
+  --cream: #f7eddd;
+  --warm-ivory: #fff6e8;
+  --blush-mist: #f1ddd8;
+  --wine: #6b1730;
+  --wine-deep: #4e1024;
+  --wine-soft: rgba(107, 23, 48, 0.12);
+  --text: #512034;
+  --muted: #7e5b66;
+  --card: rgba(255, 252, 246, 0.88);
+  --border: rgba(107, 23, 48, 0.13);
+  --shadow: 0 20px 60px rgba(101, 55, 55, 0.14);
+  --soft-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+  font-family: "Montserrat", sans-serif;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(241, 221, 216, 0.72), transparent 18rem),
+    radial-gradient(circle at 86% 78%, rgba(229, 202, 187, 0.5), transparent 22rem),
+    linear-gradient(135deg, var(--pearl) 0%, var(--warm-ivory) 48%, var(--cream) 100%);
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23grain)' opacity='.14'/%3E%3C/svg%3E");
+  content: "";
+  mix-blend-mode: multiply;
+  opacity: 0.22;
+}
+
+.page-shell {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 7%;
+}
+
+.rsvp-card {
+  position: relative;
+  width: min(100%, 31rem);
+  padding: clamp(1rem, 2.6vw, 1.55rem);
+  border: 1px solid var(--border);
+  border-radius: 1.65rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 249, 240, 0.92)),
+    var(--card);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  animation: cardReveal 780ms var(--soft-ease) both;
+  overflow: hidden;
+}
+
+.rsvp-card::before,
+.rsvp-card::after {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  content: "";
+}
+
+.rsvp-card::before {
+  top: -5.2rem;
+  right: -4.8rem;
+  width: 12rem;
+  height: 12rem;
+  background: radial-gradient(circle, rgba(107, 23, 48, 0.12), transparent 68%);
+}
+
+.rsvp-card::after {
+  bottom: -5.5rem;
+  left: -5rem;
+  width: 13rem;
+  height: 13rem;
+  background: radial-gradient(circle, rgba(205, 164, 143, 0.24), transparent 70%);
+}
+
+.castle-frame {
+  position: relative;
+  height: clamp(5.1rem, 16vw, 7.2rem);
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(107, 23, 48, 0.16);
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, rgba(255, 250, 242, 0.75), rgba(241, 221, 216, 0.82));
+  box-shadow: 0 14px 34px rgba(101, 55, 55, 0.11);
+  overflow: hidden;
+}
+
+.castle-frame::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 54%;
+  background: linear-gradient(180deg, transparent, rgba(255, 250, 242, 0.9));
+  content: "";
+}
+
+.castle-photo-placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: rgba(107, 23, 48, 0.48);
+  font-family: "Playfair Display", serif;
+  font-size: 0.95rem;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.82), transparent 18%),
+    linear-gradient(135deg, rgba(235, 189, 196, 0.38), rgba(255, 247, 237, 0.35));
+}
+
+.event-header {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--wine);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  display: grid;
+  gap: 0;
+  margin: 0.05rem 0 0;
+  color: var(--wine-deep);
+  line-height: 1;
+}
+
+.title-kicker {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.25rem, 4vw, 1.65rem);
+  font-weight: 600;
+}
+
+.alexa-name {
+  margin-top: 0.55rem;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(4rem, 14vw, 5.8rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-shadow: 0 10px 28px rgba(107, 23, 48, 0.12);
+}
+
+.commemorative-text {
+  margin: -0.35rem 0 0.18rem;
+  color: var(--muted);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(0.95rem, 2.4vw, 1.08rem);
+  font-weight: 500;
+}
+
+.event-details {
+  max-width: 24rem;
+  margin: 0 auto 0.85rem;
+  color: var(--wine);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+form {
+  position: relative;
+  display: grid;
+  gap: 0.68rem;
+  z-index: 1;
+}
+
+.field {
+  display: grid;
+  gap: 0.28rem;
+}
+
+label,
+legend {
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid rgba(107, 23, 48, 0.14);
+  border-radius: 0.95rem;
+  outline: 0;
+  padding: 0.72rem 0.86rem;
+  color: var(--wine-deep);
+  font: 500 0.92rem/1.35 "Montserrat", sans-serif;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition:
+    border-color 240ms ease-in-out,
+    box-shadow 240ms ease-in-out,
+    background-color 240ms ease-in-out,
+    transform 240ms ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: rgba(107, 23, 48, 0.42);
+  background-color: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 10px 24px rgba(107, 23, 48, 0.09);
+  transform: translateY(-1px);
+}
+
+.radio-field {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.radio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.52rem;
+}
+
+.radio-card {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.radio-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio-card span {
+  display: flex;
+  min-height: 2.7rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(107, 23, 48, 0.16);
+  border-radius: 999px;
+  padding: 0.62rem 0.7rem;
+  color: var(--wine);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.54);
+  transition:
+    border-color 240ms ease-in-out,
+    color 240ms ease-in-out,
+    background-color 240ms ease-in-out,
+    box-shadow 240ms ease-in-out,
+    transform 240ms ease-in-out;
+}
+
+.radio-card:hover span,
+.radio-card input:focus-visible + span {
+  border-color: rgba(107, 23, 48, 0.42);
+  box-shadow: 0 10px 22px rgba(107, 23, 48, 0.09);
+  transform: translateY(-1px);
+}
+
+.radio-card input:checked + span {
+  border-color: var(--wine);
+  color: var(--pearl);
+  background: linear-gradient(135deg, var(--wine), var(--wine-deep));
+  box-shadow: 0 12px 28px rgba(107, 23, 48, 0.18);
+}
+
+.guests-field {
+  max-height: 5.1rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-height 380ms var(--soft-ease),
+    opacity 250ms ease-in-out,
+    transform 380ms var(--soft-ease),
+    margin 380ms var(--soft-ease);
+  overflow: hidden;
+}
+
+.guests-field.is-hidden {
+  max-height: 0;
+  margin-top: -0.68rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.55rem);
+}
+
+.submit-button {
+  width: 100%;
+  min-height: 2.9rem;
+  margin-top: 0.16rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.76rem 1.2rem;
+  color: var(--pearl);
+  font: 600 0.88rem/1 "Montserrat", sans-serif;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--wine), var(--wine-deep));
+  box-shadow: 0 16px 34px rgba(107, 23, 48, 0.22);
+  transition:
+    box-shadow 240ms ease-in-out,
+    filter 240ms ease-in-out,
+    transform 240ms ease-in-out;
+}
+
+.submit-button:hover,
+.submit-button:focus-visible {
+  outline: 0;
+  filter: brightness(1.05);
+  box-shadow: 0 20px 42px rgba(107, 23, 48, 0.28);
+  transform: translateY(-2px);
+}
+
+.submit-button:active {
+  transform: translateY(0) scale(0.99);
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.4rem) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 48rem) {
+  .page-shell {
+    padding: 4vh 2rem;
+  }
+
+  .rsvp-card {
+    width: min(100%, 32.5rem);
+    padding: 1.45rem 1.7rem;
+  }
+
+  form {
+    gap: 0.72rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .page-shell {
+    padding: 4.5vh 6%;
+  }
+
+  .rsvp-card {
+    border-radius: 1.35rem;
+    padding: 0.92rem;
+  }
+
+  .castle-frame {
+    height: 5rem;
+    margin-bottom: 0.55rem;
+    border-radius: 1rem;
+  }
+
+  .alexa-name {
+    font-size: clamp(3.75rem, 20vw, 4.65rem);
+  }
+
+  .event-details {
+    margin-bottom: 0.68rem;
+    font-size: 0.74rem;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  .radio-card span,
+  .submit-button {
+    min-height: 2.85rem;
+  }
+
+  .radio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-height: 46rem) and (min-width: 48rem) {
+  .page-shell {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .castle-frame {
+    height: 4.8rem;
+  }
+
+  .alexa-name {
+    font-size: 4.6rem;
+  }
+
+  form {
+    gap: 0.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+
+/*=========================================== GRACIAS ==================================*/
+.thank-you-card {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.85rem;
+}
+
+.thank-you-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  color: #722F37;
+}
+
+.thank-you-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.thank-you-title {
+  margin: 0;
+  color: #722F37;
+  line-height: 1;
+}
+
+.thank-you-text {
+  max-width: 24rem;
+  margin: 0;
+  color: var(--muted);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.thank-you-details {
+  margin: 0.20rem 0 0.8rem;
+}
+
+.thank-you-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}

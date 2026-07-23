@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Confirmación de asistencia para los XV Años de Alexa.">
+  <link rel="shortcut icon" href="Img/xv.ico" type="image/x-icon">
+  <title>Confirmacion | XV Años</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Forzar al navegador a no guardar la página en caché -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="rsvp-card" aria-labelledby="eventTitle">
+      <div class="castle-frame">
+        <div class="castle-photo-placeholder">
+          <img src="Img/Castle.png" alt="">
+        </div>
+      </div>
+      
+      <header class="event-header">
+        <p class="eyebrow">Confirmación de asistencia</p>
+        <h1 id="eventTitle">
+          <span class="title-kicker">XV Años de</span>
+          <span class="alexa-name">Alexa</span>
+        </h1><br>
+        <p class="commemorative-text">Una noche de cuento para celebrar sus XV Años</p>
+        <p class="event-details">Sábado 10 de Octubre de 2026, 16:00h / 4.00 p.m. | Iglesia de San Francisco</p>
+        <p class="event-details">Sábado 10 de Octubre de 2026, 18:00h / 6.00 p.m. | Salón Rincón De Los Sueños</p>
+      </header>
+      
+      <div id="mensajeYaEnviado" style="display: none; width: 100%;">
+          <!-- Ícono SVG exacto de tu diseño -->
+          <div class="thank-you-icon">
+              <svg viewBox="0 0 80 80" role="img" aria-hidden="true" style="width: 70px; height: 70px; margin: 0 auto; display: block;">
+                  <circle cx="40" cy="40" r="34" fill="none" stroke="#722F37" stroke-width="2"/>
+                  <path d="M25 41.5L35.2 51.5L56 29" fill="none" stroke="#722F37" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+          </div>
+          
+          <h1 class="alexa-name thank-you-title" style="text-align: center;">¡Gracias por confirmar!</h1>
+          
+          <p class="thank-you-text" style="text-align: center;">
+              Hemos recibido tu respuesta. Nos hace muy felices contar contigo para celebrar los XV Años de Alexa.
+          </p>
+          
+          <p class="event-details thank-you-details" style="text-align: center;">
+              Sábado 10 de Octubre de 2026, 16h | Iglesia de San Antonio.
+          </p>
+          
+          <p class="event-details thank-you-details" style="text-align: center;">
+              Sábado 10 de Octubre de 2026, 18h | Salón Rincón De Los Sueños.
+          </p>
+
+          <!-- Textos extra agregados -->
+          <p class="thank-you-text" style="text-align: center; margin-top: 1.5rem; font-weight: bold; color: #722F37;">
+              ¡Ya contamos contigo!<br>Tu confirmación ya está registrada. Nos vemos en la fiesta.
+          </p>
+      </div>
+      
+      <form action="https://api.web3forms.com/submit" method="POST" id="rsvpForm">
+      <input type="hidden" name="access_key" value="d645fd40-d67f-4518-b001-c016af7c837a">
+      <input type="hidden" name="redirect" value="https://Victor-Dominguez-112.github.io/gracias.html">
+        <div class="field">
+          <label for="fullName">Nombre completo</label>
+          <input type="text" id="fullName" name="nombre_completo" autocomplete="name" required placeholder="Ingresa tu nombre aquí">
+        </div>
+        
+        <div class="field">
+          <label for="familyName">¿A qué familia representas?</label>
+          <input type="text" id="familyName" name="familia" required placeholder="Apellidos y/o Amigo">
+        </div>
+        
+        <fieldset class="field radio-field">
+          <legend>¿Asistirás a la fiesta?</legend>
+          <div class="radio-grid">
+            <label class="radio-card" for="attendingYes">
+              <input type="radio" id="attendingYes" name="asistencia" value="Sí, con gusto" required>
+              <span>Sí, con gusto</span>
+            </label>
+            <label class="radio-card" for="attendingNo">
+              <input type="radio" id="attendingNo" name="asistencia" value="No podré asistir">
+              <span>No podré asistir</span>
+            </label>
+          </div>
+        </fieldset>
+        
+        <div class="field guests-field" id="guestsField">
+          <label for="guestCount">¿Cuántas personas van contigo?</label>
+          <input type="number" id="guestCount" name="personas_que_van_contigo" min="1" inputmode="numeric" required placeholder="Ingresa la cantidad total de personas">
+        </div>
+        
+        <div class="field">
+          <label for="songRequest">¿Qué canción no puede faltar?</label>
+          <input type="text" id="songRequest" name="cancion_sugerida" required placeholder="Nombre de la canción">
+        </div>
+        
+        <button type="submit" class="submit-button">Confirmar asistencia</button>
+      </form>
+    </section>
+  </main>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"75124c326cb447fe934cde04713ae013","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
